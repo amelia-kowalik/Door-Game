@@ -32,7 +32,15 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 direction = _moveAction.ReadValue<Vector2>();
         float scaledSpeed = _movementSpeed * Time.fixedDeltaTime;
-        Vector3 movement = new Vector3(direction.x * scaledSpeed, 0f, direction.y * scaledSpeed);
+        Vector3 cameraForward = _camera.forward;
+        cameraForward.y = 0f; 
+        cameraForward.Normalize();
+
+        Vector3 cameraRight = _camera.right;
+        cameraRight.y = 0f; 
+        cameraRight.Normalize();
+
+        Vector3 movement = (cameraForward * direction.y + cameraRight * direction.x) * scaledSpeed;
 
         _rb.MovePosition(_rb.position + movement);
     }
