@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     private InputAction _moveAction;
     private InputAction _lookLeftAction; 
     private InputAction _lookRightAction;
+    private InputAction _pointAction;
+    private Interactable _lastHighlighted;
 
     
     void Start()
@@ -20,12 +22,14 @@ public class PlayerMovement : MonoBehaviour
         _moveAction = _playerInput.actions.FindAction("Move");
         _lookLeftAction = _playerInput.actions.FindAction("LookLeft"); 
         _lookRightAction = _playerInput.actions.FindAction("LookRight");
+        _pointAction = _playerInput.actions.FindAction("Point");
     }
 
     void FixedUpdate()
     {
         Move();
         Look();
+        Point();
     }
     
     private void Move()
@@ -60,5 +64,32 @@ public class PlayerMovement : MonoBehaviour
 
         float angle = lookInput * _rotationSpeed * Time.fixedDeltaTime;
         _camera.Rotate(Vector3.up, angle, Space.World);
+    }
+
+    private void Point()
+    {
+        Vector2 position = _pointAction.ReadValue<Vector2>();
+        Ray ray = Camera.main.ScreenPointToRay(position);
+
+        if (Physics.Raycast(ray, out RaycastHit hit, 100f, LayerMask.GetMask("Interactables")))
+        {
+            Interactable interactable = hit.collider.GetComponent<Interactable>();
+            
+            if (_lastHighlighted != null)
+            {
+                _lastHighlighted.RemoveHighlight();
+            }
+            interactable.Highlight();
+            _lastHighlighted = interactable;
+            
+        }
+        else
+        {
+            if (_lastHighlighted != null)
+            {
+                _lastHighlighted.RemoveHighlight();
+            }
+            _lastHighlighted = null;
+        }
     }
 }
