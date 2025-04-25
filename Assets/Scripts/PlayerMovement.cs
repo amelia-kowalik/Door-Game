@@ -25,11 +25,11 @@ public class PlayerMovement : MonoBehaviour
         _lookLeftAction = _playerInput.actions.FindAction("LookLeft"); 
         _lookRightAction = _playerInput.actions.FindAction("LookRight");
         _pointAction = _playerInput.actions.FindAction("Point");
-        _interactAction = _playerInput.actions.FindAction("Interact");
+        //_interactAction = _playerInput.actions.FindAction("Interact");
         
     }
 
-    void OnEnable()
+    /*void OnEnable()
     {
         _interactAction.performed += OnInteract;
         _interactAction.Enable();
@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _interactAction.performed -= OnInteract;
         _interactAction.Disable();
-    }
+    }*/
 
     void FixedUpdate()
     {
@@ -98,6 +98,13 @@ public class PlayerMovement : MonoBehaviour
             interactable.Highlight();
             _lastHighlighted = interactable;
             
+            if (Mouse.current.leftButton.wasPressedThisFrame)
+            {
+                if (interactable != null)
+                {
+                    interactable.Interact();
+                }
+            }
         }
         else
         {
@@ -109,11 +116,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void OnInteract(InputAction.CallbackContext context)
+    /*public void OnInteract(InputAction.CallbackContext context)
     {
         if (_lastHighlighted != null)
         {
             _lastHighlighted.Interact();
         }
-    }
+    }*/
 }
