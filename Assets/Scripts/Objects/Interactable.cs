@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class Interactable : MonoBehaviour
+public class Interactable : MonoBehaviour
 {
     private MeshRenderer _meshRenderer;
     private Material _material;
@@ -50,5 +50,5 @@ public abstract class Interactable : MonoBehaviour
         }
     }
 
-    public abstract void Interact();
+    public virtual void Interact(){}
 }

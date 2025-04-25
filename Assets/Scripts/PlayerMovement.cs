@@ -1,4 +1,5 @@
 using System.Linq;
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -25,16 +26,18 @@ public class PlayerMovement : MonoBehaviour
         _lookRightAction = _playerInput.actions.FindAction("LookRight");
         _pointAction = _playerInput.actions.FindAction("Point");
         _interactAction = _playerInput.actions.FindAction("Interact");
-        _interactAction.performed += OnInteract;
+        
     }
 
     void OnEnable()
     {
+        _interactAction.performed += OnInteract;
         _interactAction.Enable();
     }
 
     void OnDisable()
     {
+        _interactAction.performed -= OnInteract;
         _interactAction.Disable();
     }
 
@@ -78,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
         float angle = lookInput * _rotationSpeed * Time.fixedDeltaTime;
         _camera.Rotate(Vector3.up, angle, Space.World);
     }
-
+    
     private void Point()
     {
         Vector2 position = _pointAction.ReadValue<Vector2>();
