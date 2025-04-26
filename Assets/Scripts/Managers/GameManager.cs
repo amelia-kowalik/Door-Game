@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour
 {
     public static event Action OnGameStart;
     public static event Action<float> OnGameEnd;
+    
+    public static GameManager Instance { get; private set; }
 
     
     [SerializeField] private GameObject startPanel;
@@ -12,6 +14,17 @@ public class GameManager : MonoBehaviour
     
     private float _startTime;
     private bool _isGameRunning = false;
+    
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this; }
+        else
+        {
+            Destroy(gameObject); 
+        }
+    }
     
     void Start()
     {
