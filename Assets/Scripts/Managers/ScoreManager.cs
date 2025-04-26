@@ -9,7 +9,7 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         score = new Score();
-        view = FindObjectsOfType<ScoreUI>()[0];
+        view = FindObjectOfType<ScoreUI>();
         UpdateUI();
     }
 
