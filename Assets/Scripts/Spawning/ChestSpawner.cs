@@ -5,7 +5,7 @@ public class ChestSpawner : Spawner
 {
     protected override void Start()
     {
-        numberOfSlots = 1;
+        NumberOfSlots = 1;
         base.Start();
     }
     

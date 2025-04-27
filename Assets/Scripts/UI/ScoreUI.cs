@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class ScoreUI : MonoBehaviour
 {
-    public TextMeshProUGUI currentScoreText;
-    public TextMeshProUGUI highScoreText;
+    [SerializeField] private TextMeshProUGUI currentScoreText;
+    [SerializeField] private TextMeshProUGUI highScoreText;
 
     public void UpdateScore(float current, float high)
     {

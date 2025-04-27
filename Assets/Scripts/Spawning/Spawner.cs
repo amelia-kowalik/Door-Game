@@ -5,7 +5,7 @@ public abstract class Spawner : MonoBehaviour
 {
     [SerializeField] protected GameObject prefab;
     [SerializeField] protected List<GameObject> spawners;
-    protected int numberOfSlots;
+    protected int NumberOfSlots;
     
     protected virtual void Start()
     {
@@ -16,7 +16,7 @@ public abstract class Spawner : MonoBehaviour
     {
         List<GameObject> availableSpawn = new List<GameObject>(spawners);
 
-        for (int i = 0; i < numberOfSlots && availableSpawn.Count > 0; i++)
+        for (int i = 0; i < NumberOfSlots && availableSpawn.Count > 0; i++)
         {
             int index = Random.Range(0, availableSpawn.Count);
             GameObject spawner = availableSpawn[index];

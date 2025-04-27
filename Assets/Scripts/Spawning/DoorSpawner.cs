@@ -5,7 +5,7 @@ public class DoorSpawner : Spawner
 {
     protected override void Start()
     {
-        numberOfSlots = Random.Range(1, spawners.Count);
+        NumberOfSlots = Random.Range(1, spawners.Count);
         base.Start();
     }
 }
