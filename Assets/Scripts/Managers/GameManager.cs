@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     [SerializeField] private GameObject startPanel;
+    [SerializeField] private GameObject gameOverPanel;
     
     private float _startTime;
     private bool _isGameRunning = false;
@@ -51,7 +53,18 @@ public class GameManager : MonoBehaviour
 
         ScoreManager.Instance.SetScore(timeTaken);
         ScoreManager.Instance.HighScoreUpdate();
+        gameOverPanel.SetActive(true);
+        
         OnGameEnd?.Invoke(timeTaken);
+    }
+
+    public void StartAgain()
+    {
+        ScoreManager.Instance.HighScoreUpdate();
+            
+        ScoreManager.Instance.ResetScore();
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void ShowStartMenu()

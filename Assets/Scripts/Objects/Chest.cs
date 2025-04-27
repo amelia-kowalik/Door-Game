@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class Chest : Interactable
 {
-    [SerializeField] private Animator animator;
-    [SerializeField] private GameObject keyPrefab;
     private bool _isChestOpen = false;
     
     public override void Interact()
@@ -23,8 +21,10 @@ public class Chest : Interactable
 
     private void OpenChest()
     {
-        animator.SetBool("IsClicked", true);
         _isChestOpen = true;
-        keyPrefab = Instantiate(keyPrefab, gameObject.transform);
+        
+        Inventory.Instance.AddKey();
+        
+        PopUpManager.Instance.ShowInfoPopUp("You found a key!");
     }
 }
