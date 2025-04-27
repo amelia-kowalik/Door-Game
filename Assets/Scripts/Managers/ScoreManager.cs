@@ -42,17 +42,22 @@ public class ScoreManager : MonoBehaviour
 
     private void LoadHighScore()
     {
-        score.HighScore = PlayerPrefs.HasKey("SavedHighScore") ? PlayerPrefs.GetFloat("SavedHighScore") : 0;
-        if (!PlayerPrefs.HasKey("SavedHighScore"))
+        if (PlayerPrefs.HasKey("SavedHighScore"))
         {
-            PlayerPrefs.SetFloat("SavedHighScore", 0);
+            score.HighScore = PlayerPrefs.GetFloat("SavedHighScore");
+        }
+        else
+        {
+            score.HighScore = float.MaxValue;
+            PlayerPrefs.SetFloat("SavedHighScore", float.MaxValue);
             PlayerPrefs.Save();
         }
+
     }
 
     public void HighScoreUpdate()
     {
-        float savedHighScore = PlayerPrefs.GetFloat("SavedHighScore", 0);
+        float savedHighScore = PlayerPrefs.GetFloat("SavedHighScore",  float.MaxValue);
 
         if (score.CurrentScore < savedHighScore) 
         {
