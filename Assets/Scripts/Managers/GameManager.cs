@@ -8,9 +8,7 @@ public class GameManager : MonoBehaviour
     
     public static GameManager Instance { get; private set; }
 
-    
     [SerializeField] private GameObject startPanel;
-    [SerializeField] private ScoreManager scoreManager;
     
     private float _startTime;
     private bool _isGameRunning = false;
@@ -51,8 +49,8 @@ public class GameManager : MonoBehaviour
         float timeTaken = Time.time - _startTime;
         _isGameRunning = false;
 
-        scoreManager.SetScore(timeTaken);
-        scoreManager.HighScoreUpdate();
+        ScoreManager.Instance.SetScore(timeTaken);
+        ScoreManager.Instance.HighScoreUpdate();
         OnGameEnd?.Invoke(timeTaken);
     }
 

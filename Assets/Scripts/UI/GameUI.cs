@@ -32,6 +32,7 @@ public class GameUI : MonoBehaviour
 
     private void StartTimer()
     {
+        
         _elapsedTime = 0;
         _isTiming = true;
     }

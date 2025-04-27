@@ -3,9 +3,8 @@ using UnityEngine;
 
 public class Chest : Interactable
 {
-    public static event Action onChestClicked;
-    
-    public GameObject keyPrefab;
+    [SerializeField] private Animator animator;
+    [SerializeField] private GameObject keyPrefab;
     private bool _isChestOpen = false;
     
     public override void Interact()
@@ -23,8 +22,8 @@ public class Chest : Interactable
 
     private void OpenChest()
     {
+        animator.SetBool("IsClicked", true);
         _isChestOpen = true;
-        keyPrefab = Instantiate(keyPrefab);
-        onChestClicked?.Invoke();
+        keyPrefab = Instantiate(keyPrefab, gameObject.transform);
     }
 }

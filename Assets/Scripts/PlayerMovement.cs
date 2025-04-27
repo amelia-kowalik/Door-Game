@@ -1,5 +1,4 @@
-using System.Linq;
-using UnityEditor.Rendering.LookDev;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,36 +17,48 @@ public class PlayerMovement : MonoBehaviour
     private Interactable _lastHighlighted;
 
     
-    void Start()
+    void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();
         _moveAction = _playerInput.actions.FindAction("Move");
         _lookLeftAction = _playerInput.actions.FindAction("LookLeft"); 
         _lookRightAction = _playerInput.actions.FindAction("LookRight");
         _pointAction = _playerInput.actions.FindAction("Point");
-        //_interactAction = _playerInput.actions.FindAction("Interact");
+        _interactAction = _playerInput.actions.FindAction("Interact");
         
+        if (_interactAction != null)
+        {
+            _interactAction.performed += OnInteract;
+        }
+        else
+        {
+            Debug.Log("No interact");
+        }
+
     }
 
-    /*void OnEnable()
+    void OnEnable()
     {
-        _interactAction.performed += OnInteract;
-        _interactAction.Enable();
+        _playerInput.actions.Enable();
     }
 
     void OnDisable()
     {
+        _playerInput.actions.Disable();
         _interactAction.performed -= OnInteract;
-        _interactAction.Disable();
-    }*/
+    }
 
     void FixedUpdate()
     {
         Move();
         Look();
+    }
+
+    private void Update()
+    {
         Point();
     }
-    
+
     private void Move()
     {
         Vector2 direction = _moveAction.ReadValue<Vector2>();
@@ -84,27 +95,25 @@ public class PlayerMovement : MonoBehaviour
     
     private void Point()
     {
+        
         Vector2 position = _pointAction.ReadValue<Vector2>();
         Ray ray = Camera.main.ScreenPointToRay(position);
 
-        if (Physics.Raycast(ray, out RaycastHit hit, 100f, LayerMask.GetMask("Interactables")))
+        if (Physics.Raycast(ray, out RaycastHit hit, 100f))
         {
-            Interactable interactable = hit.collider.GetComponent<Interactable>();
-            
-            if (_lastHighlighted != null)
+            if (hit.collider.CompareTag("Interactable"))
             {
-                _lastHighlighted.RemoveHighlight();
-            }
-            interactable.Highlight();
-            _lastHighlighted = interactable;
-            
-            if (Mouse.current.leftButton.wasPressedThisFrame)
-            {
-                if (interactable != null)
+                Interactable interactable = hit.collider.GetComponent<Interactable>();
+
+                if (_lastHighlighted != null)
                 {
-                    interactable.Interact();
+                    _lastHighlighted.RemoveHighlight();
                 }
+
+                interactable.Highlight();
+                _lastHighlighted = interactable; 
             }
+
         }
         else
         {
@@ -116,11 +125,23 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    /*public void OnInteract(InputAction.CallbackContext context)
+    private void OnInteract(InputAction.CallbackContext ctx)
     {
-        if (_lastHighlighted != null)
+        
+        Vector2 position = _pointAction.ReadValue<Vector2>();
+        Ray ray = Camera.main.ScreenPointToRay(position);
+
+        if (Physics.Raycast(ray, out RaycastHit hit, 100f))
         {
-            _lastHighlighted.Interact();
+            if (hit.collider.CompareTag("Interactable"))
+            {
+                Interactable interactable = hit.collider.GetComponent<Interactable>();
+                if (interactable != null)
+                    {
+                        interactable.Interact();
+                    }
+            }
         }
-    }*/
+    }
+
 }

@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: -1751480086967751553, guid: 54663241fc01aaf478c169afbe65dfb8, type: 3}
+      propertyPath: m_TagString
+      value: Interactable
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 54663241fc01aaf478c169afbe65dfb8, type: 3}
       propertyPath: m_Name
       value: chest
@@ -74,7 +78,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 54663241fc01aaf478c169afbe65dfb8, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Interactable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -85,16 +89,19 @@ PrefabInstance:
       addedObject: {fileID: 6534258810587861871}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 54663241fc01aaf478c169afbe65dfb8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -2437010889406186769}
+      addedObject: {fileID: 4909743592434467710}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 54663241fc01aaf478c169afbe65dfb8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4909743592434467710}
+      addedObject: {fileID: -1783471873436634984}
     - targetCorrespondingSourceObject: {fileID: -1751480086967751553, guid: 54663241fc01aaf478c169afbe65dfb8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6135707671835406948}
     - targetCorrespondingSourceObject: {fileID: -1751480086967751553, guid: 54663241fc01aaf478c169afbe65dfb8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8260218956050414001}
+    - targetCorrespondingSourceObject: {fileID: -1751480086967751553, guid: 54663241fc01aaf478c169afbe65dfb8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7469903288008337763}
   m_SourcePrefab: {fileID: 100100000, guid: 54663241fc01aaf478c169afbe65dfb8, type: 3}
 --- !u!1 &1276135437102888617 stripped
 GameObject:
@@ -122,18 +129,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.275, y: 1.1367053, z: 1.275}
   m_Center: {x: 0, y: 0.56835264, z: 0}
---- !u!114 &-2437010889406186769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1276135437102888617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd0dba63e23f6a48905a0002a8b1cc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4909743592434467710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,6 +141,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8184a4adb74412e49886bcbad9449fac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: -1783471873436634984}
+  keyPrefab: {fileID: 0}
+--- !u!95 &-1783471873436634984
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276135437102888617}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: db10a489eb97ca84dafc84f936360c07, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8846663542613403527 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1751480086967751553, guid: 54663241fc01aaf478c169afbe65dfb8, type: 3}
@@ -184,3 +203,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.275, y: 0.765, z: 1.2749999}
   m_Center: {x: 0, y: 0.25500023, z: 0.5099962}
+--- !u!111 &7469903288008337763
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8846663542613403527}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 4873981333490874974, guid: 54663241fc01aaf478c169afbe65dfb8, type: 3}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0

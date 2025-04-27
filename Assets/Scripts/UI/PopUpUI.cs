@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 public class PopUpUI : MonoBehaviour
 {
-    public Button yesButton;
-    public Button noButton;
-    public TextMeshProUGUI text;
+    [SerializeField] private Button yesButton;
+    [SerializeField] private Button noButton;
+    [SerializeField] private TextMeshProUGUI text;
 
     public void SetUp(PopUp popUp)
     {

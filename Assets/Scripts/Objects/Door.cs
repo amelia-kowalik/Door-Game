@@ -5,16 +5,6 @@ public class Door : Interactable
 {
     private bool _hasKey = false;
 
-    private void OnEnable()
-    {
-        Inventory.OnKeyAdded += KeyAdded;
-    }
-
-    private void OnDisable()
-    {
-        Inventory.OnKeyAdded -= KeyAdded;
-    }
-
     private void KeyAdded()
     {
         _hasKey = true;
