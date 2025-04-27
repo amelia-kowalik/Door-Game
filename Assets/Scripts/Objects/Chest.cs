@@ -9,6 +9,7 @@ public class Chest : Interactable
     
     public override void Interact()
     {
+        Debug.Log("Chest clicked");
         if (!_isChestOpen)
         {
             PopUpManager.Instance.ShowQuestionPopUp("Open the chest?",

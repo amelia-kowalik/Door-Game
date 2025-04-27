@@ -105,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
 
-                if (_lastHighlighted != null)
+                if (_lastHighlighted != null && _lastHighlighted != interactable)
                 {
                     _lastHighlighted.RemoveHighlight();
                 }
@@ -138,6 +138,7 @@ public class PlayerMovement : MonoBehaviour
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
                 if (interactable != null)
                     {
+                        Debug.Log("Raycast hit: " + hit.collider.name);
                         interactable.Interact();
                     }
             }
