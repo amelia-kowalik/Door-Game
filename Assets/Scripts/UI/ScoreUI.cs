@@ -8,7 +8,7 @@ public class ScoreUI : MonoBehaviour
 
     public void UpdateScore(float current, float high)
     {
-        currentScoreText.text = $"Time: {current}";
-        highScoreText.text = $"Best time: {high}";
+        currentScoreText.text = $"Time: {current:F2}";
+        highScoreText.text = $"Best time: {high:F2}";
     }
 }

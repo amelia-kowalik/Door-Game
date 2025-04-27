@@ -23,6 +23,7 @@ public class ScoreManager : MonoBehaviour
     {
         score = new Score();
         view = FindObjectOfType<ScoreUI>();
+        LoadHighScore();
         UpdateUI();
     }
 
@@ -39,19 +40,31 @@ public class ScoreManager : MonoBehaviour
         UpdateUI();
     }
 
+    private void LoadHighScore()
+    {
+        score.HighScore = PlayerPrefs.HasKey("SavedHighScore") ? PlayerPrefs.GetFloat("SavedHighScore") : 0;
+        if (!PlayerPrefs.HasKey("SavedHighScore"))
+        {
+            PlayerPrefs.SetFloat("SavedHighScore", 0);
+            PlayerPrefs.Save();
+        }
+    }
+
     public void HighScoreUpdate()
     {
-        if (PlayerPrefs.HasKey("SavedHighScore"))
+        float savedHighScore = PlayerPrefs.GetFloat("SavedHighScore", 0);
+
+        if (score.CurrentScore < savedHighScore) 
         {
-            if (score.CurrentScore > PlayerPrefs.GetInt("SavedHighScore"))
-            {
-                PlayerPrefs.SetFloat("SavedHighScore", score.CurrentScore);
-            }
+            PlayerPrefs.SetFloat("SavedHighScore", score.CurrentScore);
+            score.HighScore = score.CurrentScore;
+            PlayerPrefs.Save(); 
         }
         else
         {
-            PlayerPrefs.SetFloat("SavedHighScore", score.CurrentScore);
+            score.HighScore = savedHighScore;
         }
+
         UpdateUI();
     }
 
