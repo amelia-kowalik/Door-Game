@@ -2557,6 +2557,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1d7bc739feae846b72894cbc17d94a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreManager: {fileID: 1293578634}
+  popUpManager: {fileID: 844201009}
   startPanel: {fileID: 1849062842}
   gameOverPanel: {fileID: 655600280}
 --- !u!4 &1147016761
