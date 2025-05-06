@@ -4,21 +4,9 @@ using UnityEngine.PlayerLoop;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static ScoreManager Instance { get; private set; }
     private Score score;
     private ScoreUI view;
-
-    void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject); 
-        }
-    }
+    
     void Start()
     {
         score = new Score();

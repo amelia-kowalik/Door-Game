@@ -23,7 +23,7 @@ public class Door : Interactable
         _hasKey = Inventory.Instance.HasKey();
         if (_hasKey)
         {
-            PopUpManager.Instance.ShowQuestionPopUp("Open the door?", 
+            GameManager.Instance.PopUpManager.ShowQuestionPopUp("Open the door?", 
                 () => 
                 {
                     OpenDoor();
@@ -31,11 +31,11 @@ public class Door : Interactable
             );
         } else 
         {
-            PopUpManager.Instance.ShowInfoPopUp("You need a key!");
+            GameManager.Instance.PopUpManager.ShowInfoPopUp("You need a key!");
         }
     }
 
-    private void OpenDoor()
+    private void OpenDoor() 
     {
         GameManager.Instance.CompleteGameplay();
     }

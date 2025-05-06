@@ -10,7 +10,7 @@ public class Chest : Interactable
         Debug.Log("Chest clicked");
         if (!_isChestOpen)
         {
-            PopUpManager.Instance.ShowQuestionPopUp("Open the chest?",
+            GameManager.Instance.PopUpManager.ShowQuestionPopUp("Open the chest?",
                 () =>
             {
                 OpenChest();
@@ -25,6 +25,6 @@ public class Chest : Interactable
         
         Inventory.Instance.AddKey();
         
-        PopUpManager.Instance.ShowInfoPopUp("You found a key!");
+        GameManager.Instance.PopUpManager.ShowInfoPopUp("You found a key!");
     }
 }
