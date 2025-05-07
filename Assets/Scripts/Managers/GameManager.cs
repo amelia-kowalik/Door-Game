@@ -57,7 +57,6 @@ public class GameManager : MonoBehaviour
         _isGameRunning = false;
 
         ScoreManager.SetScore(timeTaken);
-        ScoreManager.HighScoreUpdate();
         gameOverPanel.SetActive(true);
         
         OnGameEnd?.Invoke(timeTaken);
@@ -65,8 +64,7 @@ public class GameManager : MonoBehaviour
 
     public void StartAgain()
     {
-        ScoreManager.HighScoreUpdate();
-            
+        
         ScoreManager.ResetScore();
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

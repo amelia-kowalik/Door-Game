@@ -1,18 +1,17 @@
-using UnityEngine;
-
-public class Score : MonoBehaviour
+[System.Serializable]
+public class Score
 {
-    public float CurrentScore { get; private set; }
-    public float HighScore { get;  set; }
+    public float currentScore;
+    public float highScore;
 
    
     public void SetScore(float time)
     {
-        CurrentScore = time;
+        currentScore = time;
     }
 
     public void ResetScore()
     {
-        CurrentScore = 0;
+        currentScore = 0;
     }
 }

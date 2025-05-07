@@ -1,24 +1,37 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using System.IO;
 
 public class ScoreManager : MonoBehaviour
 {
+    [SerializeField] private ScoreUI view;
     private Score score;
-    private ScoreUI view;
+    private string path;
+    
     
     void Start()
     {
-        score = new Score();
-        view = FindObjectOfType<ScoreUI>();
+        
+        path = Application.persistentDataPath + "/score.json";
+        Debug.Log(path);
+        
         LoadHighScore();
+        
         UpdateUI();
     }
 
     public void SetScore(float time)
     {
         score.SetScore(time);
-        HighScoreUpdate();
+        
+        if (score.currentScore < score.highScore)
+        {
+            score.highScore = score.currentScore;
+            
+        }
+        SaveToJson();
         UpdateUI();
     }
 
@@ -30,39 +43,29 @@ public class ScoreManager : MonoBehaviour
 
     private void LoadHighScore()
     {
-        if (PlayerPrefs.HasKey("SavedHighScore"))
+        if (File.Exists(path))
         {
-            score.HighScore = PlayerPrefs.GetFloat("SavedHighScore");
+            string json = File.ReadAllText(path);
+            score = JsonUtility.FromJson<Score>(json);
         }
         else
         {
-            score.HighScore = float.MaxValue;
-            PlayerPrefs.SetFloat("SavedHighScore", float.MaxValue);
-            PlayerPrefs.Save();
+            score.highScore = float.MaxValue;
+            SaveToJson();
         }
 
     }
 
-    public void HighScoreUpdate()
+    public void SaveToJson()
     {
-        float savedHighScore = PlayerPrefs.GetFloat("SavedHighScore",  float.MaxValue);
-
-        if (score.CurrentScore < savedHighScore) 
-        {
-            PlayerPrefs.SetFloat("SavedHighScore", score.CurrentScore);
-            score.HighScore = score.CurrentScore;
-            PlayerPrefs.Save(); 
-        }
-        else
-        {
-            score.HighScore = savedHighScore;
-        }
-
-        UpdateUI();
+        string scoreData = JsonUtility.ToJson(score);
+        Debug.Log("Serialized score data: " + scoreData);
+        File.WriteAllText(path, scoreData);
+        Debug.Log("Saved score to json");
     }
 
     public void UpdateUI()
     {
-        view.UpdateScore(score.CurrentScore, score.HighScore);
+        view.UpdateScore(score.currentScore, score.highScore);
     }
 }
