@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class Chest : Interactable
 {
+    private const string OpenChestQuestion = "Open the chest?";
+    private const string FoundKeyInfo = "You found a key!";
+    
     private bool _isChestOpen = false;
     
     public override void Interact()
@@ -10,7 +13,7 @@ public class Chest : Interactable
         Debug.Log("Chest clicked");
         if (!_isChestOpen)
         {
-            GameManager.Instance.PopUpManager.ShowQuestionPopUp("Open the chest?",
+            GameManager.Instance.PopUpManager.ShowQuestionPopUp(OpenChestQuestion,
                 () =>
             {
                 OpenChest();
@@ -25,6 +28,6 @@ public class Chest : Interactable
         
         Inventory.Instance.AddKey();
         
-        GameManager.Instance.PopUpManager.ShowInfoPopUp("You found a key!");
+        GameManager.Instance.PopUpManager.ShowInfoPopUp(FoundKeyInfo);
     }
 }

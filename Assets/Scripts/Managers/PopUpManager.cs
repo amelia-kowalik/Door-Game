@@ -5,6 +5,7 @@ public class PopUpManager : MonoBehaviour
 {
     [SerializeField] private GameObject infoPopUpPrefab;
     [SerializeField] private GameObject questionPopUpPrefab;
+    [SerializeField] private GameObject canvas;
     private PopUp _currentPopUp;
     private PopUpUI _view;
     
@@ -20,7 +21,7 @@ public class PopUpManager : MonoBehaviour
             Destroy(_currentPopUp.gameObject);
         }
 
-        GameObject popItUp = Instantiate(questionPopUpPrefab, FindObjectOfType<Canvas>().transform
+        GameObject popItUp = Instantiate(questionPopUpPrefab, canvas.transform
         );
 
         QuestionPopUp questionPopUp = popItUp.GetComponent<QuestionPopUp>();
@@ -37,7 +38,7 @@ public class PopUpManager : MonoBehaviour
             Destroy(_currentPopUp.gameObject);
         }
         
-        GameObject popItUp = Instantiate(infoPopUpPrefab,FindObjectOfType<Canvas>().transform);
+        GameObject popItUp = Instantiate(infoPopUpPrefab,canvas.transform);
 
         InfoPopUp infoPopUp = popItUp.GetComponent<InfoPopUp>();
         infoPopUp.SetUp(text);

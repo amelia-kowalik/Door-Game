@@ -3,17 +3,11 @@ using UnityEngine;
 
 public class Door : Interactable
 {
+    private const string OpenDoorQuestion = "Open the door?";
+    private const string NeedKeyInfo = "You need a key!";
+    
     private bool _hasKey = false;
 
-    /*void OnEnable()
-    {
-        Inventory.OnKeyAdded += KeyAdded;
-    }
-
-    void OnDisable()
-    {
-        Inventory.OnKeyAdded -= KeyAdded;
-    }*/
     private void KeyAdded()
     {
         _hasKey = true;
@@ -23,7 +17,7 @@ public class Door : Interactable
         _hasKey = Inventory.Instance.HasKey();
         if (_hasKey)
         {
-            GameManager.Instance.PopUpManager.ShowQuestionPopUp("Open the door?", 
+            GameManager.Instance.PopUpManager.ShowQuestionPopUp(OpenDoorQuestion, 
                 () => 
                 {
                     OpenDoor();
@@ -31,7 +25,7 @@ public class Door : Interactable
             );
         } else 
         {
-            GameManager.Instance.PopUpManager.ShowInfoPopUp("You need a key!");
+            GameManager.Instance.PopUpManager.ShowInfoPopUp(NeedKeyInfo);
         }
     }
 

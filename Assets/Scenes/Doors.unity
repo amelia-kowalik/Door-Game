@@ -2180,6 +2180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infoPopUpPrefab: {fileID: 2401886528373115229, guid: 86f85f421d2a22b42a93f27d1f5903ea, type: 3}
   questionPopUpPrefab: {fileID: 5924779677478873015, guid: 06729c444541a7949a89248e76f128d5, type: 3}
+  canvas: {fileID: 261367077}
 --- !u!4 &844201010
 Transform:
   m_ObjectHideFlags: 0
