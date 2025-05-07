@@ -7,6 +7,12 @@ public class Chest : Interactable
     private const string FoundKeyInfo = "You found a key!";
     
     private bool _isChestOpen = false;
+
+
+    protected override void Awake()
+    {
+        base.Awake();
+    }
     
     public override void Interact()
     {
