@@ -97,8 +97,8 @@ public class PlayerMovement : MonoBehaviour
     {
         
         Vector2 position = _pointAction.ReadValue<Vector2>();
-        Ray ray = Camera.main.ScreenPointToRay(position);
-
+        Ray ray = Camera.main.ScreenPointToRay(position); 
+        Debug.DrawRay(ray.origin, ray.direction * 100f, Color.red);
         if (Physics.Raycast(ray, out RaycastHit hit, 100f))
         {
             if (hit.collider.CompareTag("Interactable"))

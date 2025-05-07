@@ -93,21 +93,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f3f05457ba8596f469ffa0a3841628ad, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1543505008548392428}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f3f05457ba8596f469ffa0a3841628ad, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8279784015603582025}
-    - targetCorrespondingSourceObject: {fileID: 4423045620967985251, guid: f3f05457ba8596f469ffa0a3841628ad, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5912842844897308279}
     - targetCorrespondingSourceObject: {fileID: 4423045620967985251, guid: f3f05457ba8596f469ffa0a3841628ad, type: 3}
       insertIndex: -1
       addedObject: {fileID: 965637185214709595}
     - targetCorrespondingSourceObject: {fileID: 4423045620967985251, guid: f3f05457ba8596f469ffa0a3841628ad, type: 3}
       insertIndex: -1
       addedObject: {fileID: 212167126852623375}
-    - targetCorrespondingSourceObject: {fileID: 6464790103353768797, guid: f3f05457ba8596f469ffa0a3841628ad, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7797500855281260850}
     - targetCorrespondingSourceObject: {fileID: 6464790103353768797, guid: f3f05457ba8596f469ffa0a3841628ad, type: 3}
       insertIndex: -1
       addedObject: {fileID: 718562401845232615}
@@ -120,19 +111,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6464790103353768797, guid: f3f05457ba8596f469ffa0a3841628ad, type: 3}
   m_PrefabInstance: {fileID: 8154765704509951872}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7797500855281260850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2926214317613659357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd0dba63e23f6a48905a0002a8b1cc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turnOnHighlight: 0
 --- !u!114 &718562401845232615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f2df43ef7a275941ba76665c822fffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnOnHighlight: 0
+  turnOnHighlight: 1
 --- !u!65 &4536606898874493394
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -172,19 +150,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4423045620967985251, guid: f3f05457ba8596f469ffa0a3841628ad, type: 3}
   m_PrefabInstance: {fileID: 8154765704509951872}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5912842844897308279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5497308262061465571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd0dba63e23f6a48905a0002a8b1cc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turnOnHighlight: 0
 --- !u!114 &965637185214709595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f2df43ef7a275941ba76665c822fffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnOnHighlight: 0
+  turnOnHighlight: 1
 --- !u!65 &212167126852623375
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -215,7 +180,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.1842485, y: 0.8226778, z: 0.6}
   m_Center: {x: 0.004874721, y: 0.4113389, z: 0.3}
@@ -300,19 +265,6 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f2df43ef7a275941ba76665c822fffb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turnOnHighlight: 0
---- !u!114 &8279784015603582025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9073317159053538001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd0dba63e23f6a48905a0002a8b1cc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   turnOnHighlight: 1
