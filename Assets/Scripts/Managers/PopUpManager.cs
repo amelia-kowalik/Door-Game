@@ -7,12 +7,7 @@ public class PopUpManager : MonoBehaviour
     [SerializeField] private GameObject questionPopUpPrefab;
     [SerializeField] private GameObject canvas;
     private PopUp _currentPopUp;
-    private PopUpUI _view;
     
-    void Start()
-    {
-        _view = GetComponent<PopUpUI>();
-    }
 
     public void ShowQuestionPopUp(string text, Action onYes)
     {
