@@ -21,8 +21,6 @@ public class PopUpManager : MonoBehaviour
 
         QuestionPopUp questionPopUp = popItUp.GetComponent<QuestionPopUp>();
         questionPopUp.SetUp(text, onYes);
-        //view.SetUp(questionPopUp);
-       // questionPopUp.gameObject.SetActive(true);
         _currentPopUp = questionPopUp;
     }
 
@@ -37,7 +35,6 @@ public class PopUpManager : MonoBehaviour
 
         InfoPopUp infoPopUp = popItUp.GetComponent<InfoPopUp>();
         infoPopUp.SetUp(text);
-        //view.SetUp(infoPopUp);
         infoPopUp.gameObject.SetActive(true);
         _currentPopUp = infoPopUp;
     }

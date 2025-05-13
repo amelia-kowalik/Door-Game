@@ -13,7 +13,6 @@ public class ScoreManager : MonoBehaviour
     
     void Start()
     {
-        
         path = Application.persistentDataPath + "/score.json";
         Debug.Log(path);
         
